@@ -1,0 +1,208 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 5,
+    "passes": 2,
+    "pending": 0,
+    "failures": 3,
+    "start": "2021-01-30T10:59:25.810Z",
+    "end": "2021-01-30T11:00:46.648Z",
+    "duration": 80838,
+    "testsRegistered": 5,
+    "passPercent": 40,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "87e5a6bb-5fe6-49c7-b5ab-239591e208da",
+      "title": "",
+      "fullFile": "cypress\\integration\\ui-tajwal\\scenario-2.js",
+      "file": "cypress\\integration\\ui-tajwal\\scenario-2.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a62c2a5a-829e-4c77-99ef-b6705bfb0e44",
+          "title": "code-challenge // QA FrontEnd",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "3b53fbe0-b3a9-4c2c-aa42-6f7d9c4c3f3d",
+              "title": "Tajawal UI",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Navigate to Tajwal and verify the site is in English",
+                  "fullTitle": "code-challenge // QA FrontEnd Tajawal UI Navigate to Tajwal and verify the site is in English",
+                  "timedOut": null,
+                  "duration": 5073,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.url().should('include', '/en'); // confirm the english in the URL\ncy.get('[data-testid=\"Header__LanguageSwitch\"]').then(function ($label) {\n  if ($label.text().includes('English')) {\n    // If \"English\" displays that mean site is in Arabic\n    $label.click(); //switch the site to Engilsh \n  }\n});",
+                  "err": {},
+                  "uuid": "55e73425-c7b8-4a0c-a10e-2250aad0a785",
+                  "parentUUID": "3b53fbe0-b3a9-4c2c-aa42-6f7d9c4c3f3d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Navigate to flights-home page and entering random criteria",
+                  "fullTitle": "code-challenge // QA FrontEnd Tajawal UI Navigate to flights-home page and entering random criteria",
+                  "timedOut": null,
+                  "duration": 58565,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/flights-home');\nflightsHome.generateRandomOrgin(); // add orgin \nflightsHome.generateRandomDestination(); // add destination\nflightsHome.generateRandomDates(); // add random dates for the next 2 month\nflightsHome.addPasserngersOneAdult(); // Add pssenger - 1 adult\nflightsHome.addCabinCalsssEconnomy(); // Add Cabin class - Economy\n// Click on search flight button\ncy.get('div[class*=\"sc-htpNat\"] [data-testid=\"FlightSearchBox__SearchButton\"]').click({\n  force: true\n}).wait(40000);",
+                  "err": {},
+                  "uuid": "cfc4b9da-63f7-41fa-a671-67434fe8d878",
+                  "parentUUID": "3b53fbe0-b3a9-4c2c-aa42-6f7d9c4c3f3d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Waiting for flight list to load, and to sort fligh by cheap it and confirm it ",
+                  "fullTitle": "code-challenge // QA FrontEnd Tajawal UI Waiting for flight list to load, and to sort fligh by cheap it and confirm it ",
+                  "timedOut": null,
+                  "duration": 7990,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\ui-tajwal\\\\scenario-2.js\\\\code-challenge  QA FrontEnd -- Tajawal UI -- Waiting for flight list to load, and to sort fligh by cheap it and confirm it (failed).png\"\n}",
+                  "code": "// confirming that progress bar is finished\ncy.get('[data-testid=\"FlightSearchResults__ProgressBar__finished\"]').wait(3000).should('exist');\nflightsListing.sortByCheapest(); // sorting by the cheapest and confirm it",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[data-testid=\"Cheapest__SortBy__selected\"]`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `button[data-testid=\"Cheapest__SortBy__selected\"]`, but never found it.\n    at Object../cypress/methods/flightLising.js.exports.sortByCheapest (https://www.tajawal.com/__cypress/tests?p=cypress\\integration\\ui-tajwal\\scenario-2.js:167:6)\n    at Context.eval (https://www.tajawal.com/__cypress/tests?p=cypress\\integration\\ui-tajwal\\scenario-2.js:139:22)",
+                    "diff": null
+                  },
+                  "uuid": "059c151e-b37c-4e73-8f43-35e177d2a4a7",
+                  "parentUUID": "3b53fbe0-b3a9-4c2c-aa42-6f7d9c4c3f3d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "fetch and save price of first flight",
+                  "fullTitle": "code-challenge // QA FrontEnd Tajawal UI fetch and save price of first flight",
+                  "timedOut": null,
+                  "duration": 4507,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\ui-tajwal\\\\scenario-2.js\\\\code-challenge  QA FrontEnd -- Tajawal UI -- fetch and save price of first flight (failed).png\"\n}",
+                  "code": "flightsListing.saveFirstFlightPrice();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-testid=\"Group0__PriceLabel\"]`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-testid=\"Group0__PriceLabel\"]`, but never found it.\n    at Object../cypress/methods/flightLising.js.exports.saveFirstFlightPrice (https://www.tajawal.com/__cypress/tests?p=cypress\\integration\\ui-tajwal\\scenario-2.js:172:6)\n    at Context.eval (https://www.tajawal.com/__cypress/tests?p=cypress\\integration\\ui-tajwal\\scenario-2.js:143:22)",
+                    "diff": null
+                  },
+                  "uuid": "1873048c-6535-4173-aaca-a19c0658907f",
+                  "parentUUID": "3b53fbe0-b3a9-4c2c-aa42-6f7d9c4c3f3d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Assert the minimum-price displayed for price-range-filter equals to price of first-flight in list",
+                  "fullTitle": "code-challenge // QA FrontEnd Tajawal UI Assert the minimum-price displayed for price-range-filter equals to price of first-flight in list",
+                  "timedOut": null,
+                  "duration": 4443,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\ui-tajwal\\\\scenario-2.js\\\\code-challenge  QA FrontEnd -- Tajawal UI -- Assert the minimum-price displayed for price-range-filter equals to price of first-flight in list (failed).png\"\n}",
+                  "code": "flightsListing.minPrice_and_FirstFlightPrice();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-testid=\"Collapsed_PriceFilter\"]`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-testid=\"Collapsed_PriceFilter\"]`, but never found it.\n    at Object../cypress/methods/flightLising.js.exports.minPrice_and_FirstFlightPrice (https://www.tajawal.com/__cypress/tests?p=cypress\\integration\\ui-tajwal\\scenario-2.js:179:6)\n    at Context.eval (https://www.tajawal.com/__cypress/tests?p=cypress\\integration\\ui-tajwal\\scenario-2.js:147:22)",
+                    "diff": null
+                  },
+                  "uuid": "f62ee4c4-2c34-437c-ab3c-8418871ae4de",
+                  "parentUUID": "3b53fbe0-b3a9-4c2c-aa42-6f7d9c4c3f3d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "55e73425-c7b8-4a0c-a10e-2250aad0a785",
+                "cfc4b9da-63f7-41fa-a671-67434fe8d878"
+              ],
+              "failures": [
+                "059c151e-b37c-4e73-8f43-35e177d2a4a7",
+                "1873048c-6535-4173-aaca-a19c0658907f",
+                "f62ee4c4-2c34-437c-ab3c-8418871ae4de"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 80578,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
