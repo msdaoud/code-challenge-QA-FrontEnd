@@ -39,6 +39,12 @@ exports.generateRandomDates = () => {
   // Adding Passengers (1Adult)
 exports.addPasserngersOneAdult = () => {
 // default value is one passenger 
+// we need to confirm that 1 adult is selected + all other values are 0
+cy.get('[data-testid="FlightSearchBox__PaxDropdown"]').click().wait(100)
+cy.get('[data-testid="FlightSearchPAXSelection__AdultsCountLabel"]').contains('1') // adults value =1 
+cy.get('[data-testid="FlightSearchPAXSelection__ChildrenCountLabel"]').contains('0') // children value =0 
+cy.get('[data-testid="FlightSearchPAXSelection__InfantCountLabel"]').contains('0') // infant value =0
+
 }
 
   // Adding Cabin Class (Economy)
